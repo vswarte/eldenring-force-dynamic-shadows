@@ -1,5 +1,5 @@
 # Elden Ring force enable shadow casting
-This small mod forces the game to cast dynamic shadows for everything.
+This small mod forces the game to cast dynamic shadows from every light source.
 
 Vanilla:
 ![Vanilla shadow casting](asset/before.jpg)
