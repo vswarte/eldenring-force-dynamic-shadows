@@ -7,8 +7,8 @@ use broadsword::runtime;
 
 static GAME_BASE: sync::OnceLock<usize> = sync::OnceLock::new();
 
-const HAS_DYNAMIC_SHADOW_CAST_IBO: usize = 0x1BA174E;
-const GXLIGHTMANAGER_CONSTRUCTOR_IBO: usize = 0xDC9330;
+const OBJECT_HAS_DYNAMIC_SHADOW_CAST_IBO: usize = 0xB01EB0;
+const GXLIGHTMANAGER_CONSTRUCTOR_IBO: usize = 0x19DA500;
 
 static_detour! {
     static GXLIGHTMANAGER_CONSTRUCTOR: unsafe extern "system" fn(u64, u64) -> u64;
