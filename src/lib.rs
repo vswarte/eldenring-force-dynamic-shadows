@@ -1,9 +1,9 @@
 use std::mem;
 use std::sync;
+use broadsword::runtime::get_module_handle;
 use detour::static_detour;
 
 use broadsword::dll;
-use broadsword::runtime;
 
 static GAME_BASE: sync::OnceLock<usize> = sync::OnceLock::new();
 
@@ -16,9 +16,8 @@ static_detour! {
 
 #[dll::entrypoint]
 pub fn entry(_: usize) -> bool {
-    broadsword::logging::init("log/force_dynamic_shadows.log");
     apply_hook();
-    return true;
+    true
 }
 
 fn apply_hook() {
@@ -48,6 +47,8 @@ fn patch_dynamic_shadow_check() {
 
 pub fn get_game_base() -> usize {
     *GAME_BASE.get_or_init(|| {
-        runtime::get_module_handle("eldenring.exe".to_string()).unwrap()
+        get_module_handle("eldenring.exe")
+            .or_else(|_| get_module_handle("start_protected_game.exe"))
+            .expect("Could not locate main module")
     })
 }

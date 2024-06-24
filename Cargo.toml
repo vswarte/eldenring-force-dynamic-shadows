@@ -10,3 +10,9 @@ crate-type = ["cdylib"]
 log = "0.4.17"
 broadsword = { git = "https://github.com/vswarte/broadsword.git" }
 detour = { git = "https://github.com/veeenu/detour-rs.git", branch = "master" }
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+opt-level = "z"
