@@ -7,9 +7,8 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-log = "0.4.17"
+region = "3.0.2"
 broadsword = { git = "https://github.com/vswarte/broadsword.git" }
-detour = { git = "https://github.com/veeenu/detour-rs.git", branch = "master" }
 
 [profile.release]
 strip = true
