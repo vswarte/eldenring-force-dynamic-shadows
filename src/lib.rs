@@ -1,9 +1,9 @@
 use std::slice;
+use region::Protection;
 use broadsword::runtime;
 use broadsword::scanner;
-
 use broadsword::dll;
-use region::Protection;
+
 
 const HAS_DYNAMIC_SHADOW_CAST_PATTERN: &str = concat!(
     // 141ba1ad8 80 bf ad        CMP        byte ptr [RDI + 0xad],0x0
